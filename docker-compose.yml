@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  db:
+    container_name: postgres
+    hostname: postgres
+    image: postgres:latest
+    restart: always
+    ports: 
+      - 5432:5432
+    environment: 
+      POSTGRES_PASSWORD: Hydrogen
+  
+  adminer:
+    container_name: adminer
+    hostname: adminer
+    image: adminer:latest
+    restart: always
+    ports: 
+      - 8080:8080
+    depends_on: 
+      - db
